@@ -1,0 +1,7 @@
+__pycache__/
+.venv/
+.env
+.streamlit/secrets.toml
+*.csv
+*_backup.py
+healthcare_metrics_project/
