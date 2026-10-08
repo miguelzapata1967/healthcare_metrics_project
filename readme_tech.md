@@ -133,3 +133,79 @@ The present code reads **only the PBJ staffing CSV**. The other CMS files are no
 ## AI assistance disclosure
 
 AI assistance was used in code drafting, troubleshooting, visual styling, and documentation. The project creator should test the application in the local environment and verify calculations and interpretations before submitting or publishing.
+# AWS S3 and Streamlit Cloud Deployment
+
+**Implementation date:** October 8, 2026
+
+### Deployment Configuration
+
+| Component | Configuration |
+|---|---|
+| GitHub repository | `miguelzapata1967/healthcare_metrics_project` |
+| Branch | `main` |
+| Entry point | `healthcare_dashboard.py` |
+| Hosting | Streamlit Community Cloud |
+| Data storage | Amazon S3 |
+| Bucket | `mzapata-healthcare-metrics-2026` |
+| Region | `us-west-1` |
+| S3 object | `PBJ_Daily_Nurse_Staffing_Q2_2024.csv` |
+
+### Data Pipeline
+
+1. CMS PBJ CSV is stored in a private Amazon S3 bucket.
+2. Streamlit obtains AWS credentials through its Secrets configuration.
+3. Boto3 retrieves the dataset from S3.
+4. Pandas reads and processes the CSV.
+5. Data cleaning validates dates, census, staffing hours, and duplicate records.
+6. Calculated metrics feed the interactive Streamlit dashboard.
+7. Plotly renders charts for filtered results.
+
+### Troubleshooting History
+
+**Issue 1 — GitHub upload restriction**
+
+The dataset exceeded GitHub's 25 MB browser upload limit.
+
+Resolution: Store the approximately 209.5 MB dataset in AWS S3 rather than the public GitHub repository.
+
+**Issue 2 — Dataset unavailable**
+
+The cloud application initially could not find a local CSV or usable AWS configuration.
+
+Resolution: Configure the S3 bucket and object key in the Python application.
+
+**Issue 3 — Streamlit Secrets mismatch**
+
+The AWS access key variable was initially entered as `AWS_ACCESS_KEY` instead of `AWS_ACCESS_KEY_ID`.
+
+Resolution: Correct the Secrets variable names to match the Python code.
+
+Required credential names include:
+
+```text
+AWS_ACCESS_KEY_ID
+AWS_SECRET_ACCESS_KEY
+AWS_DEFAULT_REGION
+```
+
+The bucket is also configured in the application code. Credentials must never be committed to GitHub.
+
+**Issue 4 — Application runtime error**
+
+Following deployment, Streamlit displayed an "Error running app" page.
+
+Status: Root cause not yet established. The next diagnostic step is to inspect Streamlit application logs for Python exceptions, memory errors, dependency failures, or AWS access errors.
+
+### Security
+
+- Keep S3 Block Public Access enabled.
+- Use a dedicated IAM identity with minimum required permissions.
+- Store credentials only in Streamlit Secrets.
+- Never publish access keys in source code or documentation.
+- Verify that public visitors cannot access administrative functions.
+
+### Published Application
+
+[Healthcare Metrics Streamlit Dashboard](https://miguelzapata1967-healthcare-metrics-healthcare-dashboard-euzqg2.streamlit.app/)
+
+**Technical deployment status:** URL established; runtime troubleshooting and final functional testing pending.

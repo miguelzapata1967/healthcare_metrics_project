@@ -75,3 +75,31 @@ The current dashboard **analyzes the PBJ staffing CSV only**. Other uploaded CMS
 ## AI assistance disclosure
 
 AI tools assisted with Python code drafting, debugging, Streamlit styling, and documentation. The project owner is responsible for reviewing calculations, verifying results against source data, and explaining the work. Findings should not be treated as independently audited.
+
+## Cloud Deployment and Analytical Accessibility
+
+### Cloud Architecture
+
+The application uses Python, Pandas, Plotly, Streamlit, GitHub, and Amazon S3.
+
+- GitHub stores application code, documentation, and graphics.
+- AWS S3 stores the large CMS staffing dataset in a private bucket.
+- Streamlit Community Cloud hosts the interactive application.
+- Streamlit Secrets manages AWS credentials outside the public repository.
+
+### Deployment and Troubleshooting
+
+During deployment, several technical challenges were investigated:
+
+1. GitHub's browser upload limit prevented uploading the approximately 209.5 MB CSV.
+2. The CMS dataset was transferred to AWS S3.
+3. The Streamlit application initially could not locate the dataset.
+4. AWS Secrets variable names were found to be inconsistent and corrected.
+5. The Streamlit application was deployed and a public URL was generated.
+6. A subsequent application runtime error was observed and remains subject to log-based diagnosis.
+
+**Deployment status:** Public URL created; successful end-to-end runtime verification pending.
+
+### Project Attribution
+
+Project analysis, implementation, troubleshooting, and documentation were developed under Miguel Zapata's project ownership with AI-assisted coding and debugging. Findings require validation against the CMS source data.

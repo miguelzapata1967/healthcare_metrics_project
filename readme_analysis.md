@@ -97,3 +97,52 @@ A future version may connect staffing to CMS citations, penalties, ownership, va
 ## AI assistance disclosure
 
 AI tools assisted with profiling workflows, code drafting, and writing explanations. Findings and code should be reviewed and independently verified by the project owner before publication or presentation.
+**Update: October 8, 2026**
+
+The CMS Payroll-Based Journal Q2 2024 dataset was incorporated into a cloud-hosted application architecture to make the healthcare staffing analysis accessible through an interactive dashboard.
+
+### Data Source
+
+- Provider: Centers for Medicare & Medicaid Services (CMS)
+- Dataset: Payroll-Based Journal Daily Nurse Staffing
+- Reporting period: April–June 2024
+- Source file: `PBJ_Daily_Nurse_Staffing_Q2_2024.csv`
+- Storage: Private AWS S3 bucket
+- Original file size: Approximately 209.5 MB
+
+### Analytical Functionality
+
+The dashboard is designed to support:
+
+- State-level staffing comparisons
+- Facility-level analysis
+- Registered Nurse, Licensed Practical Nurse, and Certified Nursing Assistant staffing metrics
+- Nursing hours per resident-day
+- Contract staffing comparisons
+- Weekday and weekend staffing patterns
+- Interactive filters and visualizations
+
+### Deployment Limitations
+
+The cloud deployment introduces operational considerations separate from the analytical findings, including memory consumption, data-loading time, S3 permissions, and dependency management.
+
+A public dashboard URL has been generated, but the latest runtime test encountered an application error. Cloud-based analytical results should not be described as fully validated until the application loads and all filters and charts have been tested.
+
+### Interactive Dashboard
+
+[Healthcare Metrics — Live Application](https://miguelzapata1967-healthcare-metrics-healthcare-dashboard-euzqg2.streamlit.app/)
+
+The existing analysis findings and methodology remain unchanged by this deployment update.
+## Live Interactive Dashboard
+
+**Project:** Healthcare Metrics — Nursing Home Staffing Analysis  
+**Project Analyzed and Created by:** Miguel Zapata  
+**Educational Affiliation:** DE Academy  
+**DE Academy Founder:** Chris Garzon  
+**Deployment Date:** October 8, 2026
+
+**[Open the Healthcare Metrics Interactive Dashboard](https://miguelzapata1967-healthcare-metrics-healthcare-dashboard-euzqg2.streamlit.app/)**
+
+**[View GitHub Repository](https://github.com/miguelzapata1967/healthcare_metrics_project)**
+
+
