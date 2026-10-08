@@ -1,6 +1,6 @@
 # Healthcare Metrics Project
 
-**Project owner:** Miguel Zapata  
+**Project creator:** Miguel Zapata  
 **Educational affiliation:** DE Academy  
 **DE Academy founder:** Chris Garzon  
 **Primary source:** Centers for Medicare & Medicaid Services (CMS), Payroll-Based Journal (PBJ), April–June 2024
